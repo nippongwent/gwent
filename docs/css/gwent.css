@@ -161,6 +161,17 @@ img {
 max-width:100%;
 height:auto;
 }
+p.image {
+text-align:center;
+text-indent:0;
+}
+p.image img {
+margin:0 auto;
+}
+p.image span.caption {
+font-size:0.8em;
+color:#666;
+}
 
 a {
 margin: -2px 0;
@@ -309,7 +320,7 @@ position: relative;
 padding-bottom: 56.25%;
 height: 0;
 overflow: hidden;
-margin: 10px 0;
+margin: 0.5em 0;
 }
 .youtube iframe {
 position: absolute;
