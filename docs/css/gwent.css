@@ -1,0 +1,323 @@
+@charset "UTF-8";
+
+/*  RESET STYLE  */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/*
+"Micro clearfix"
+http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+.cf { zoom: 1; }
+.cf:before,
+.cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
+
+/**********************/
+
+.wrap90 {
+width: 90%;
+padding: 0 5%;
+max-width: 44em;
+margin: 0 auto;
+overflow: hidden;
+}
+
+nav.breadcrumb {
+margin-top:10px;
+}
+nav.toc {
+padding:1.5em 0;
+background: #fff;
+}
+nav.toc h2 {
+margin-top:0;
+}
+nav.toc p {
+font-size:0.8em;
+}
+
+.breadcrumb p {
+font-size:0.8em;
+}
+
+body {
+color: #222;
+background: #f0f0f0;
+font-size: 100%;
+line-height: 1.5;
+font-weight: 400;
+}
+
+header {
+padding: 1em 0;
+}
+
+h1 {
+font-size:2.5em;
+line-height:1.25;
+font-weight:bold;
+}
+
+h2 {
+margin-top:1em;
+font-size:1.75em;
+line-height:1.25;
+font-weight:bold;
+}
+
+h3 {
+margin-top:1em;
+font-size:1.25em;
+line-height:1.25;
+font-weight:bold;
+}
+
+h4 {
+margin-top:1.25em;
+font-size:1em;
+line-height:1.25;
+font-weight:bold;
+}
+
+section {
+margin-bottom:1.75em;
+padding-bottom:1.75em;
+border-bottom:solid 2px #fff;
+}
+
+section p {
+margin-top:0.5em;
+text-indent:1em;
+}
+
+strong {
+font-weight:bold;
+background: #ffc;
+}
+
+sup {
+font-size:0.7em;
+vertical-align: baseline;
+position: relative;
+top: -1ex;
+}
+
+.sup {
+text-indent:0;
+font-size:0.8em;
+}
+
+img {
+max-width:100%;
+height:auto;
+}
+
+a {
+margin: -2px 0;
+padding:2px;
+color: #661;
+}
+a:visited {
+color: #331;
+}
+a:hover {
+background-color: #fff;
+}
+a.img {
+margin:0;
+padding:0;
+color: #000;
+}
+a.img:visited {
+color: #000;
+}
+a.img:hover {
+background-color: #f0f0f0;
+opacity: 0.7;
+}
+
+del {
+opacity: 0.5;
+}
+
+ul {
+padding: 0.5em 0 0.5em 2em;
+}
+
+ul li {
+list-style-type: none;
+margin-top:0.5em;
+}
+
+ul li:before {
+content: "\00BB";
+color:#333;
+display: block;
+float: left;
+margin-left: -2em;
+width: 1.5em;
+text-align: center;
+}
+
+ul.nest {
+padding: 0 0 0.5em 2em;
+}
+
+ul.nest li:before {
+content: "\0966";
+}
+
+ol {
+counter-reset:number;
+padding: 0.5em 0 0.5em 2em;
+}
+
+ol li {
+list-style-type: none;
+margin-top:0.5em;
+}
+
+ol li:before {
+counter-increment: number;
+content: counter(number) "\002E";
+color:#333;
+display: block;
+float: left;
+margin-left: -2em;
+width: 1.5em;
+text-align: right;
+}
+
+ul.toc_cloud {
+padding: 0.5em 0;
+letter-spacing: -0.4em;
+}
+
+ul.toc_cloud li {
+display:inline-block;
+list-style-type:none;
+margin: 0 .3em .3em 0;
+padding:0;
+letter-spacing: normal;
+}
+
+ul.toc_cloud li:before {
+content: "";
+}
+
+ul.toc_cloud li a {
+display: inline-block;
+margin:0;
+padding:0 0.5em;
+height: 1.5em;
+line-height: 1.5em;
+border-radius: 5px;
+word-wrap: normal;
+white-space: nowrap;
+font-weight:bold;
+text-decoration:none;
+color:#000;
+background-color:#f0f0f0;
+}
+
+ul.toc_cloud li a:visited {
+color:#000;
+background-color:#f0f0f0;
+}
+
+ul.toc_cloud li a:hover {
+color:#000;
+background-color:#ffc;
+}
+
+ul.toc_cloud_mini {
+padding: 0.5em 0;
+}
+
+ul.toc_cloud_mini li {
+display:inline;
+list-style-type:none;
+font-size:0.8em;
+font-weight:bold;
+line-height:1.8em;
+white-space:nowrap;
+padding-right: 1em;
+}
+
+ul.toc_cloud_mini li:before {
+content: "";
+}
+ul.toc_cloud_mini li:after {
+content: "\002C";
+}
+ul.toc_cloud_mini li:last-child:after {
+content: "";
+}
+
+q {
+background-color:#fff;
+}
+q:before { content: open-quote;  }
+q:after  { content: close-quote; }
+q {
+quotes: "\201C" "\201D";
+}
+cite {
+font-size:0.8em;
+}
+cite:before {
+content: "\00A0\0028\00A0";
+}
+cite:after {
+content: "\00A0\0029\00A0";
+}
+
+footer {
+padding: 1em 0;
+}
