@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# Ver.3.2 アップデート情報まとめ
+この記事は2019年8月30日（金）に行われる Gwent Ver.3.2 のアップデート情報のまとめです。
 
-You can use the [editor on GitHub](https://github.com/nippongwent/gwent/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# 事前情報
+当初、2019年8月29日（木）に Ver.3.2 アップデートが入る予定でしたが、1日延期され、日本時間の8月30日（金）19時頃にアップデートされることになりました。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+https://twitter.com/SlamaTwoFlags/status/1166768792309026818
 
-### Markdown
+## これまでの経緯
+- 7月末にブロンズカードを大量に強化するアップデートが入る。同時にシンジケートに6人目のリーダー《シギスムント・ディクストラ》が加入。
+- 《ディクストラ》の性能が他のシンジケートのリーダーの上位互換であったため、《ディクストラ》がシンジゲートを牛耳る。
+- 《フォルテスト王》に率られた刺青隊デッキが最強であることがわかる。射程の概念から解き放たれた《ケイドウェン軍の亡霊兵》を操る《ドラウグ》や単純にハイテンポな《キーラ・メッツ》など、北方諸国が覇を唱える。
+- 対抗として、ニルフガードの《アーダル・エプ・デヒー》と《簒奪者》が増える。
+- 《フォルテスト王》と《ディクストラ》が名指しで調整予定とされる。
+- しかし、緊急バランス修正（ホットフィックス）は行わないとアナウンスされ、現在に至る。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# アップデート紹介ビデオの概要
+（現在、準備中）
 
-```markdown
-Syntax highlighted code block
+# 「シーズン・ウォリアー」のシーズンモード
+（現在、準備中）
 
-# Header 1
-## Header 2
-### Header 3
+# テキストミス・バグ情報
+（現在、準備中）
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nippongwent/gwent/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
