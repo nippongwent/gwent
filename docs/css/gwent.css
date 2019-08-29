@@ -102,27 +102,31 @@ h1 {
 font-size:2.5em;
 line-height:1.25;
 font-weight:bold;
+word-wrap: break-word;
 }
 
 h2 {
 margin-top:1em;
-font-size:1.75em;
+font-size:2em;
 line-height:1.25;
 font-weight:bold;
+word-wrap: break-word;
 }
 
 h3 {
 margin-top:1em;
-font-size:1.25em;
+font-size:1.5em;
 line-height:1.25;
 font-weight:bold;
+word-wrap: break-word;
 }
 
 h4 {
-margin-top:1.25em;
+margin-top:1em;
 font-size:1em;
 line-height:1.25;
 font-weight:bold;
+word-wrap: break-word;
 }
 
 section {
