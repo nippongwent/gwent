@@ -304,6 +304,21 @@ ul.toc_cloud_mini li:last-child:after {
 content: "";
 }
 
+.youtube {
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+margin: 10px 0;
+}
+.youtube iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
 q {
 background-color:#fff;
 }
