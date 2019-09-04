@@ -1,2 +1,2 @@
 # nippongwent.github.io
-https://nippongwent.github.io/gwent/
+Moved: https://scrapbox.io/nippongwent/
