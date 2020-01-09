@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-JP" lang="ja-JP">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+	<!-- Basic -->
+	<title>《決闘》簡易計算機 - NipponGwent Github Pages</title>
+	<meta name="description" content="グウェントの《決闘》の結果を計算します。" />
+	<meta name="author" content="NipponGwent" />
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+	
+	<!-- Style -->
+	<link rel="stylesheet" href="../css/gwent.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=11" />
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@NipponGwent" />
+	
+	<!-- OGP -->
+	<meta property="og:locale" content="ja_JP" />
+	<meta property="og:title" content="《決闘》簡易計算機 - NipponGwent Github Pages" />
+	<meta property="og:type" content="article" />
+	<meta property="og:description" content="グウェントの《決闘》の結果を計算します。">
+	<meta property="og:url" content="https://nippongwent.github.io/gwent/articles/duel.html">
+	<meta property="og:image" content="https://nippongwent.github.io/gwent/img/partners.png">
+	<meta property="og:site_name" content="NipponGwent Github Pages">
+
+</head>
+<body>
+
+<nav class="breadcrumb">
+	<div class="wrap90">
+		<p><a href="../">トップ</a> ≫ 《決闘》簡易計算機</p>
+	</div>
+</nav>
+
+<header>
+	<div class="wrap90">
+		<h1>グウェント：《決闘》簡易計算機</h1>
+		<p>剣を取れ！決闘だ！（シールド対応版）</p>
+	</div>
+</header>
+
+<article>
+
+	<div class="wrap90">
+		
+		<section>
+			
+			<div class="item" id="DuelSetting">
+				<h2>初期設定</h2>
+				<div class="tw">
+					<table class="ac">
+						<thead>
+							<tr>
+								<th>　</th>
+								<th>戦力</th>
+								<th>アーマー</th>
+								<th>シールド</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="c">仕掛け</td>
+								<td class="c"><input type="text" id="TTP" pattern="\d*" value="5"><button onclick="NumChange('TTP',0);">＋</button><button onclick="NumChange('TTP',1);">－</button></td>
+								<td class="c"><input type="text" id="TTA" pattern="\d*" value="0"><button onclick="NumChange('TTA',0);">＋</button><button onclick="NumChange('TTA',1);">－</button></td>
+								<td class="c">
+									<select id="TTS">
+										<option value="0" selected>なし</option>
+										<option value="1">あり</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td class="c">受け手</td>
+								<td class="c"><input type="text" id="TBP" pattern="\d*" value="7"><button onclick="NumChange('TBP',0);">＋</button><button onclick="NumChange('TBP',1);">－</button></td>
+								<td class="c"><input type="text" id="TBA" pattern="\d*" value="0"><button onclick="NumChange('TBA',0);">＋</button><button onclick="NumChange('TBA',1);">－</button></td>
+								<td class="c">
+									<select id="TBS">
+										<option value="0" selected>なし</option>
+										<option value="1">あり</option>
+									</select>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p class="d">
+					初期値は「仕掛け」が《セルトカーク》、「受け手」が《氷の巨人》です。<br>
+					戦力値・アーマーの数値は 0 ～ 1000 でないとエラーになります。
+				</p>
+				<p class="d">
+					<span class="b">プリセット：</span>  
+					<select id="Presets">
+						<option value="0,1" selected>セルトカーク ⇒ 氷の巨人</option>
+						<option value="5,2">セルトカーク（+1点） ⇒ ケルトゥリス</option>
+						<option value="3,4">アンセイス王子（+3点・シールド） ⇒ オールドスピアチップ</option>
+					</select>
+				</p>
+			</div>
+			
+			<div class="item_l" id="DuelResult">
+				<h2>結果</h2>
+				<div class="tw">
+					<table class="ac">
+						<thead>
+							<tr>
+								<th>　</th>
+								<th>戦力</th>
+								<th>アーマー</th>
+								<th>勝敗</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="c">仕掛け</td>
+								<td class="c" id="TTPR">0</td>
+								<td class="c" id="TTAR">0</td>
+								<td class="c" id="TTO">破壊</td>
+							</tr>
+							<tr>
+								<td class="c">受け手</td>
+								<td class="c" id="TBPR">2</td>
+								<td class="c" id="TBAR">0</td>
+								<td class="c z" id="TBO">生存</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="tw">
+					<table class="ac">
+						<tbody>
+							<tr>
+								<th>仕掛け側の打点</th>
+								<td class="c" id="PointSwing">12</td>
+							</tr>
+							<tr>
+								<th>双方が消耗した戦力</th>
+								<td class="c" id="PointConsume">9</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p class="d">
+					<span class="b">仕掛け側の打点：</span> 1ターン中に《決闘》を行うユニットプレイしたときの正味打点（そのユニットの戦力＋決闘の影響）。
+					一般的に「仕掛け側の戦力より大きいが、1.5倍を超えないユニット」を受け手に選ぶと打点が最大になる。
+				</p>
+				<p class="d">
+					<span class="b">双方が消耗した戦力：</span> 《酒場の揉め事》で敵を同士討ちさせたときの打点。
+					一般的に「仕掛け側の戦力の約1.6倍（黄金比）のユニット」を受け手に選ぶと打点が最大になる。
+				</p>
+				<p class="d">
+					<span class="b">シールド：</span> ダメージを1回無効にするので決闘において非常に強い。
+					例えば北方諸国のストラタジェム《技術者のやり方》で《アンセイス王子》をシールド付きの戦力7ユニットにした場合、
+					戦力18までのユニットを破壊でき、戦力14～17のユニットを対象にしたとき打点が最大になる。
+				</p>
+				<p class="d">
+					<span class="b">今後の予定：</span> 「狂戦士」などにも対応したい。
+					なお、「無防備」に関しては決闘中は発動しないことが知られているので、
+					《イギャーン》や《変異巨人》相手に決闘すると返り討ちに遭う。
+				</p>
+			</div>
+		</section>
+	</div>
+</article>
+	
+<footer>
+	<div class="wrap90" style="margin:-1em auto 2em auto;">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="グウェント：《決闘》簡易計算機 - ベニスズメの物置" data-count="horizontal" data-lang="ja">Tweet</a>
+		<script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+	</div>
+</footer>
+
+<script>
+var byId = function(i) {
+	return document.getElementById(i);
+};
+var Zen2Han = function(w) {
+	return w.replace(/[０-９]/g, function(s) {
+		return String.fromCharCode(s.charCodeAt(0) - 65248);
+	});	
+};
+var pI = function(v) {
+	return parseInt(Zen2Han(v),10);
+};
+var GwentUnit = function(p,a,s) {
+	var _p = p;
+	var _a = a;
+	var _s = s;
+	return {
+		get power() { return _p; },
+		get armor() { return _a; },
+		get shield() { return _s; },
+		setPower(v) { _p = parseInt(v); },
+		setArmor(v) { _a = parseInt(v); },
+		setShield(v) { _s = parseInt(v); },
+		update: function(v1,v2,v3) {
+			_p = parseInt(v1);
+			_a = parseInt(v2);
+			_s = parseInt(v3);
+		}
+	};
+};
+var TheTop = new GwentUnit(5,0,0); //仕掛け：セルトカークのデフォルト
+var TheBottom = new GwentUnit(7,0,0); //受け手：氷の巨人のデフォルト
+
+var GwentDuel = function() {
+	// 実行部分
+	var flag = 0; // 0:未決着, 1:受け手破壊, 2:仕掛け破壊
+	var TTP = pI(byId("TTP").value);
+	var TTA = pI(byId("TTA").value);
+	var TTS = pI(byId("TTS").value);
+	var TBP = pI(byId("TBP").value);
+	var TBA = pI(byId("TBA").value);
+	var TBS = pI(byId("TBS").value);
+	
+	// 仕掛け⇒受け手への攻撃計算
+	var T2B = function() {
+		var TP = TheTop.power;
+		//var TA = TheTop.armor;
+		var BP = TheBottom.power;
+		var BA = TheBottom.armor;
+		var BS = TheBottom.shield;
+		
+		if(BS==0) {
+			if(BA<=TP) {
+				if(BP + BA < TP) {
+					TheBottom.setPower(0);
+				} else {
+					TheBottom.setPower(BP + BA - TP);
+				}
+				TheBottom.setArmor(0);
+			} else {
+				TheBottom.setArmor(BA - TP);
+			}
+		} else {
+			TheBottom.setShield(0);
+		}
+		
+		if(TheBottom.power<=0) {
+			flag = 1;
+			EndDuel();
+		} else {
+			B2T();
+		}
+	};
+	
+	// 受け手⇒仕掛けへの攻撃計算
+	var B2T = function() {
+		var TP = TheTop.power;
+		var TA = TheTop.armor;
+		var TS = TheTop.shield;
+		var BP = TheBottom.power;
+		//var BA = TheBottom.armor;
+		
+		if(TS==0) {
+			if(TA<=BP) {
+				if(TP + TA < BP) {
+					TheTop.setPower(0);
+				} else {
+					TheTop.setPower(TP + TA - BP);
+				}
+				TheTop.setArmor(0);
+			} else {
+				TheTop.setArmor(TA - BP);
+			}
+		} else {
+			TheTop.setShield(0);
+		}
+		
+		if(TheTop.power<=0) {
+			flag = 2;
+			EndDuel();
+		} else {
+			T2B();
+		}
+	};
+	
+	// 結果表示
+	var EndDuel = function() {
+		// ユニットのスタッツの更新
+		byId("TTPR").innerHTML = TheTop.power;
+		byId("TTAR").innerHTML = TheTop.armor;
+		byId("TBPR").innerHTML = TheBottom.power;
+		byId("TBAR").innerHTML = TheBottom.armor;
+		
+		// ユニットの生存or破壊
+		if(flag===1) {
+			byId("TTO").innerHTML = "生存";
+			byId("TTO").className = "c z";
+			byId("TBO").innerHTML = "破壊";
+			byId("TBO").className = "c";
+		} else if(flag===2) {
+			byId("TTO").innerHTML = "破壊";
+			byId("TTO").className = "c";
+			byId("TBO").innerHTML = "生存";
+			byId("TBO").className = "c z";
+		}
+		
+		// 打点等の更新
+		var PointSwing = (TBP - TheBottom.power) + TheTop.power;
+		var PointConsume = (TBP - TheBottom.power) + (TTP - TheTop.power);
+		byId("PointSwing").innerHTML = PointSwing;
+		byId("PointConsume").innerHTML = PointConsume;
+	};
+	
+	// エラー表示
+	var ShowError = function() {
+		byId("TTPR").innerHTML = "n/a";
+		byId("TTAR").innerHTML = "n/a";
+		byId("TBPR").innerHTML = "n/a";
+		byId("TBAR").innerHTML = "n/a";
+		byId("TTO").innerHTML = "n/a";
+		byId("TTO").className = "c";
+		byId("TBO").innerHTML = "n/a";
+		byId("TBO").className = "c";
+		byId("PointSwing").innerHTML = "n/a";
+		byId("PointConsume").innerHTML = "n/a";
+	};
+	
+	if(! Number.isInteger(TTP) ) { ShowError(); return; }
+	if(! Number.isInteger(TTA) ) { ShowError(); return; }
+	if(! Number.isInteger(TBP) ) { ShowError(); return; }
+	if(! Number.isInteger(TBA) ) { ShowError(); return; }
+	
+	if(! (TTP>=0 && TTP<=1000) ) { ShowError(); return; }
+	if(! (TTA>=0 && TTA<=1000) ) { ShowError(); return; }
+	if(! (TBP>=0 && TBP<=1000) ) { ShowError(); return; }
+	if(! (TBA>=0 && TBA<=1000) ) { ShowError(); return; }
+
+	TheTop.update(TTP,TTA,TTS);
+	TheBottom.update(TBP,TBA,TBS);
+	T2B();
+};
+
+var NumChange = function (id,flag) {
+	var N = pI(byId(id).value);
+	if(Number.isInteger(N)) {
+		if(flag===0) {
+			N += 1;
+		} else {
+			N -= 1;
+		}
+		byId(id).value = N;
+		GwentDuel();
+	} else {
+		return;
+	}
+};
+
+var UnitExamples = [];
+UnitExamples[0] = { 'name':'セルトカーク','power':5,'armor':0, 'shield':0 };
+UnitExamples[1] = { 'name':'氷の巨人','power':7,'armor':0, 'shield':0 };
+UnitExamples[2] = { 'name':'ケルトゥリス','power':9,'armor':0, 'shield':0 };
+UnitExamples[3] = { 'name':'アンセイス王子（+3点・シールド）','power':7,'armor':0, 'shield':1 };
+UnitExamples[4] = { 'name':'オールドスピアチップ','power':12,'armor':0, 'shield':0 };
+UnitExamples[5] = { 'name':'セルトカーク（+1点）','power':6,'armor':0, 'shield':0 };
+
+var PresetChange = function () {
+	var val = byId("Presets").value.split(",");
+	var u1 = val[0];
+	var u2 = val[1];
+	if(!(typeof UnitExamples[u1] === 'undefined' || typeof UnitExamples[u2] === 'undefined')) {
+		byId("TTP").value = UnitExamples[u1].power;
+		byId("TTA").value = UnitExamples[u1].armor;
+		byId("TTS").selectedIndex = UnitExamples[u1].shield;
+		byId("TBP").value = UnitExamples[u2].power;
+		byId("TBA").value = UnitExamples[u2].armor;
+		byId("TBS").selectedIndex = UnitExamples[u2].shield;
+		GwentDuel();
+	}
+};
+
+byId("TTP").addEventListener("change",GwentDuel,false);
+byId("TTA").addEventListener("change",GwentDuel,false);
+byId("TTS").addEventListener("change",GwentDuel,false);
+byId("TBP").addEventListener("change",GwentDuel,false);
+byId("TBA").addEventListener("change",GwentDuel,false);
+byId("TBS").addEventListener("change",GwentDuel,false);
+byId("Presets").addEventListener("change",PresetChange,false);
+
+</script>
+
+</body>
+</html>
